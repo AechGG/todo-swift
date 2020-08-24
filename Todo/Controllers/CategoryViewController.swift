@@ -18,7 +18,7 @@ class CategoryViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad();
         
-        loadItems();
+        loadCategories();
         
     }
     
@@ -47,7 +47,7 @@ class CategoryViewController: UITableViewController {
     
     // MARK: - Data Manipulation
     
-    func saveItems() {
+    func saveCategories() {
         do {
             try context.save();
         } catch {
@@ -57,7 +57,7 @@ class CategoryViewController: UITableViewController {
         self.tableView.reloadData();
     }
     
-    func loadItems(with request: NSFetchRequest<Category> = Category.fetchRequest()) {
+    func loadCategories(with request: NSFetchRequest<Category> = Category.fetchRequest()) {
         do {
             categoryArray = try context.fetch(request);
         } catch {
@@ -80,11 +80,11 @@ class CategoryViewController: UITableViewController {
             
             self.categoryArray.append(newCategory);
             
-            self.saveItems();
+            self.saveCategories();
         }
         
         alert.addTextField { (alertTextField) in
-            alertTextField.placeholder = "Create new item";
+            alertTextField.placeholder = "Create new Category";
             textField = alertTextField;
         }
         
