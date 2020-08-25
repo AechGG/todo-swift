@@ -48,13 +48,18 @@ class TodoListViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-//        items[indexPath.row].done = !items[indexPath.row].done;
+        if let item = items?[indexPath.row] {
+            do {
+                try realm.write {
+                    item.done = !item.done;
+                }
+            } catch {
+                print("Error saving item \(error)");
+            }
+            
+        }
         
-//        context.delete(itemArray[indexPath.row]);
-//        itemArray.remove(at: indexPath.row);
-
-        
-//        self.saveItems();
+        self.tableView.reloadData();
         
         tableView.deselectRow(at: indexPath, animated: true);
     }
@@ -105,19 +110,19 @@ class TodoListViewController: UITableViewController {
 // MARK: - Search Bar Delegate Methods
 
 //extension TodoListViewController: UISearchBarDelegate {
-//    
+//
 //    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
 //        let request: NSFetchRequest<Item> = Item.fetchRequest();
-//        
+//
 //        request.sortDescriptors = [NSSortDescriptor(key: "title", ascending: true)];
-//        
+//
 //        loadItems(with: request, predicate: NSPredicate(format: "title CONTAINS[cd] %@", searchBar.text!));
 //    }
-//    
+//
 //    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
 //        if searchBar.text?.count == 0 {
 //            loadItems();
-//            
+//
 //            DispatchQueue.main.async {
 //                searchBar.resignFirstResponder();
 //            }
