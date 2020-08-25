@@ -52,6 +52,7 @@ class TodoListViewController: UITableViewController {
             do {
                 try realm.write {
                     item.done = !item.done;
+//                    realm.delete(item);
                 }
             } catch {
                 print("Error saving item \(error)");
