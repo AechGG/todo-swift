@@ -22,7 +22,7 @@ class CategoryViewController: UITableViewController {
         
     }
     
-    // MARK: - Table view data source
+    // MARK: - Table View Data Source Methods
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
@@ -42,7 +42,15 @@ class CategoryViewController: UITableViewController {
     // MARK: - Table View Delegate Methods
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true);
+        performSegue(withIdentifier: "goToItems", sender: self);
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let destinationVC = segue.destination as! TodoListViewController;
+        
+        if let indexPath = tableView.indexPathForSelectedRow {
+            destinationVC.selectedCategory = categoryArray[indexPath.row];
+        }
     }
     
     // MARK: - Data Manipulation
