@@ -12,7 +12,9 @@ import SwipeCellKit
 class SwipeTableViewController: UITableViewController, SwipeTableViewCellDelegate {
     
     override func viewDidLoad() {
-        super.viewDidLoad()
+        super.viewDidLoad();
+        
+        tableView.separatorStyle = .none;
     }
     
     // MARK: - Table Source Data Methods
