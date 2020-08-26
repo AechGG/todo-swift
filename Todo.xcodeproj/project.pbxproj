@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		828509AF24F6B56700B8AD1C /* SwipeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 828509AE24F6B56700B8AD1C /* SwipeTableViewController.swift */; };
 		828ABDF324ED5F75007AEB4C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 828ABDF224ED5F75007AEB4C /* AppDelegate.swift */; };
 		828ABDF524ED5F75007AEB4C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 828ABDF424ED5F75007AEB4C /* SceneDelegate.swift */; };
 		828ABDF724ED5F75007AEB4C /* TodoListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 828ABDF624ED5F75007AEB4C /* TodoListViewController.swift */; };
@@ -21,6 +22,7 @@
 
 /* Begin PBXFileReference section */
 		7FD21B562C4B9B6C3E5A7A26 /* Pods_Todo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Todo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		828509AE24F6B56700B8AD1C /* SwipeTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeTableViewController.swift; sourceTree = "<group>"; };
 		828ABDEF24ED5F75007AEB4C /* Todo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Todo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		828ABDF224ED5F75007AEB4C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		828ABDF424ED5F75007AEB4C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -71,6 +73,7 @@
 			children = (
 				8292678C24F3DDAC00A0328D /* CategoryViewController.swift */,
 				828ABDF624ED5F75007AEB4C /* TodoListViewController.swift */,
+				828509AE24F6B56700B8AD1C /* SwipeTableViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -242,6 +245,7 @@
 				8292678D24F3DDAC00A0328D /* CategoryViewController.swift in Sources */,
 				828ABDF724ED5F75007AEB4C /* TodoListViewController.swift in Sources */,
 				828ABDF324ED5F75007AEB4C /* AppDelegate.swift in Sources */,
+				828509AF24F6B56700B8AD1C /* SwipeTableViewController.swift in Sources */,
 				82D91F3B24F52AA800B28617 /* Item.swift in Sources */,
 				828ABDF524ED5F75007AEB4C /* SceneDelegate.swift in Sources */,
 				82D91F3D24F52AAF00B28617 /* Category.swift in Sources */,
