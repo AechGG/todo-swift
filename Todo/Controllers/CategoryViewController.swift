@@ -27,6 +27,22 @@ class CategoryViewController: SwipeTableViewController {
         
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+//        navigationController?.navigationBar.backgroundColor = UIColor(hexString: "1D9BF6");
+        guard let navigationBar = navigationController?.navigationBar else { fatalError("No Navigation Bar Found")}
+        if #available(iOS 13.0, *) {
+            let navBarAppearance = UINavigationBarAppearance()
+            navBarAppearance.configureWithOpaqueBackground()
+            navBarAppearance.titleTextAttributes = [.foregroundColor: UIColor.white]
+            navBarAppearance.largeTitleTextAttributes = [.foregroundColor: UIColor.white]
+            navBarAppearance.backgroundColor = UIColor(hexString: "1D9BF6");
+            navigationBar.standardAppearance = navBarAppearance
+            navigationBar.scrollEdgeAppearance = navBarAppearance
+        } else {
+            navigationController?.navigationBar.barTintColor = UIColor(hexString: "1D9BF6");
+        }
+    }
+    
     // MARK: - Table View Data Source Methods
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -40,6 +56,8 @@ class CategoryViewController: SwipeTableViewController {
         let cell = super.tableView(tableView, cellForRowAt: indexPath);
         
         cell.backgroundColor = UIColor(hexString: category?.color ?? "1D9BF6");
+        
+        cell.textLabel?.textColor = ContrastColorOf(cell.backgroundColor!, returnFlat: true);
         
         cell.textLabel?.text = category?.name ?? "No Items have been added" ;
         
@@ -57,6 +75,25 @@ class CategoryViewController: SwipeTableViewController {
         
         if let indexPath = tableView.indexPathForSelectedRow {
             destinationVC.selectedCategory = categories?[indexPath.row];
+            
+            if let safeHexString = categories?[indexPath.row].color {
+                guard let navigationBar = navigationController?.navigationBar else { fatalError("No Navigation Bar Found")}
+                if #available(iOS 13.0, *) {
+                    let navBarAppearance = UINavigationBarAppearance()
+                    navBarAppearance.configureWithOpaqueBackground()
+                    if let safeColor = UIColor(hexString: safeHexString) {
+                        navBarAppearance.titleTextAttributes = [.foregroundColor: ContrastColorOf(safeColor, returnFlat: true)]
+                        navBarAppearance.largeTitleTextAttributes = [.foregroundColor: ContrastColorOf(safeColor, returnFlat: true)]
+                        navBarAppearance.backgroundColor = safeColor;
+                    }
+                    navigationBar.standardAppearance = navBarAppearance
+                    navigationBar.scrollEdgeAppearance = navBarAppearance
+                } else {
+                    navigationController?.navigationBar.barTintColor = UIColor(hexString: safeHexString);
+                }
+            }
+            
+            
         }
     }
     
